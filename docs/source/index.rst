@@ -10,4 +10,5 @@ Contents
 --------
 
 .. toctree::
-  
+
+  support
