@@ -1,8 +1,8 @@
-Template for the Read the Docs tutorial
-=======================================
+BCPU documentation
+==================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+This repository is currently being built to hold documentation for the
+Bjerknes Climate Prediction Unit.
 
 Read the tutorial here:
 
