@@ -9,9 +9,10 @@ This page provides documentation on how members of the BCPU can get technical
 support from others within the team.
 
 GitHub
----------
-The primary way of delivering technical support will be via the issue tracker
-on the GitHub repository BjerknesCPU/BCPU-support.
+-------
+In order to keep technical requests in a central and discoverable place, we
+are using GitHub Issues as an issue tracker. Requests for support can be made
+on the 'Issues' tab of the GitHub repository BjerknesCPU/BCPU-support.
 
 .. note::
 
@@ -19,31 +20,17 @@ on the GitHub repository BjerknesCPU/BCPU-support.
   GitHub account and you will need to be added to the BjerknesCPU GitHub
   organization. To be added to this, please contact BCPU-support@uib.no.
 
-Within the BCPU-support repository on GitHub, navigate to the 'Issues' section
+Within the BCPU-support repository on GitHub, navigate to the 'Issues' tab
 where you should be able to see existing requests. To create your own request
-here, select 'New issue' containing the following information:
+here, select 'New issue', and a 'Template request' should appear. Click
+'Get Started' and fill in the fields of the template to make the request.
 
-**Title**
-
-*A short description of your request.*
-
-**Description**
-
-Request from: *Name of person request was made by*
-
-Urgency: *High/Medium/Low, can also include a date e.g. High; 01/09/2021*
-
-Tags: @tarkanbilgeuib *Tags to notify support team and relevant others*
-
-*Description of the request.*
-
-There is an example request issue which is open in the repository that can
-be used as a reference template. This request is titled 'Example Request'.
+Support for the request will then be followed up as replies on the issue,
+and the issue will be closed once it is resolved.
 
 E-mail
----------
-In the case that you do not currently have access to the BCPU-support GitHub
-repository, there is also a mailing list (BCPU-support@uib.no) to which
-technical requests can be directed. These requests will get picked up by
-someone in the team, who will respond to the request via email and also copy
-the request to the issue tracker.
+-------
+As an alternative to the GitHub Issue system, there is also a mailing list
+(BCPU-support@uib.no) to which technical requests can be directed.
+These requests will get picked up by someone in the team, who will respond to
+the request via email and also copy the request to the issue tracker.
