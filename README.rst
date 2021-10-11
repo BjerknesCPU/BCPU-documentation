@@ -1,9 +1,8 @@
 BCPU documentation
 ==================
 
-This repository is currently being built to hold documentation for the
+This repository is currently being constructed to hold documentation for the
 Bjerknes Climate Prediction Unit.
 
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+Currently the documentation can only be built locally, but this will soon
+be hosted with readthedocs.
