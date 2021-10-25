@@ -12,3 +12,4 @@ Contents
 .. toctree::
 
   support
+  NorCPM <https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model>
