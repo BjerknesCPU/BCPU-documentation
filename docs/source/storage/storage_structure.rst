@@ -215,9 +215,9 @@ External dataset sub-directories:
 source should be kept. This data does not have to be completely unmodified, for
 example, it could be compressed, or the file format could be converted.
 
-**derived_<ui>_<d>**: this is where datasets that have undergone some
+**derived/<ui>_<d>**: this is where datasets that have undergone some
 significant changes (e.g. regridding) should be stored. It is recommended to
-name these directories with <ui> as user initials (e.g. tb) and <d> as
+name sub-directories with <ui> as user initials (e.g. tb) and <d> as
 a brief description (e.g. 1x1).
 
 **scripts**: code used for downloading the data, preprocessing the data, or
