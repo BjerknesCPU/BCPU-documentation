@@ -1,10 +1,6 @@
 Support
 =======
 
-.. note::
-
-  This documentation is under construction and therefore incomplete.
-
 This page provides documentation on how members of the BCPU can get technical
 support from others within the team.
 

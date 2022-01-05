@@ -1,15 +1,24 @@
 BCPU documentation
 ===================
 
-.. note::
-
-   This project is under active development, and has only been configured
-   for local building using Sphinx.
-
 Contents
 --------
 
 .. toctree::
+  :maxdepth: 1
+  :caption: Storage
 
-  support
+  storage/storage_locations
+  storage/storage_structure
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Support
+
+  support/support
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Links
+
   NorCPM <https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model>
