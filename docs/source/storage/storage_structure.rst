@@ -6,12 +6,8 @@ This page is documentation of the BCPU storage space on NIRD.
 Status of restructure
 ---------------------
 
-We are currently in the process of creating a new directory structure to hold
-the contents of the NS9039K project space.
-
-.. note::
-  The restructure is currently ongoing, and at the moment users are advised to
-  continue storing data as they were previously.
+We are currently in the process of creating and migrating to a new directory
+structure to hold the contents of the NS9039K project space.
 
 Top-level structure
 -------------------
@@ -21,8 +17,8 @@ directories. This includes the directories **data**, **users**,
 **projects**, **repos** and **www**.
 
 .. figure::
-  example_top_level.png
-  :name: example-top-level
+  top_level.png
+  :name: top-level
   :width: 800
   :alt: An image of the top level data structure including the directories
         described in the next section.
@@ -64,8 +60,8 @@ which have been run "in-house", for example, the output from running a new
 NorCPM experiment.
 
 .. figure::
-  data_general_structure.png
-  :name: data-general-structure
+  general_data.png
+  :name: general-data
   :width: 800
   :alt: An image of the general structure of the data directory.
 
@@ -74,20 +70,21 @@ NorCPM experiment.
 The general rules that accompany this structure are as follows:
 
 #. Data must have the same number of directory levels as in
-   :numref:`data-general-structure`. If there is a stand-alone
+   :numref:`general-data`. If there is a stand-alone
    experiment/dataset, it should still be placed in an
-   "Experiment collection"/"Data provider" collection directory even if it is
+   "Experiment collection" or "Data provider" collection directory even if it is
    the only experiment/dataset in the collection. There should never be a
    mixture of collections and datasets in one directory.
 
-#. As shown in :numref:`data-general-structure`, each collection and dataset
+#. As shown in :numref:`general-data`, each collection and dataset
    directory must contain a README which follows the README template.
 
 #. Data must be contained in a sub-directory of the dataset level, rather than
    alongside the README and any other directories. For example,
    the experiment/dataset may have a large number of ensembles, and these
    should be organized into one or more sub-directories so as to make the
-   other files in the experiment more discoverable.
+   other files in the experiment more discoverable, recommendations for these
+   names are included in the following two sections.
 
 
 Internal data
@@ -95,7 +92,7 @@ Internal data
 
 We have designed some rules and some recommendations for organizing data from
 our internal experiments. The general structure of the **internal** directory
-can be seen in :numref:`data-general-structure`.
+can be seen in :numref:`general-data`.
 
 In this structure diagram, there are several required directory layers;
 **Model system**, **Experiment collection** and **Experiment**,
@@ -136,10 +133,20 @@ their own experiment collection to hold all these experiments together.
 **Experiment**: a single dataset with, for example, a particular forcing or data
 assimilation scheme.
 
-**FIGURE X** shows an example for the internal data
+:numref:`internal-dataset` shows an example for the internal data
 structure for one model system.
-We have provided some recommended directory names in grey to complement the
+We have provided some recommended directory names in grey and some example
+sub-directories in gold to complement the
 general structure. These should be used where possible and appropriate.
+
+.. figure::
+  internal_dataset.png
+  :name: internal-dataset
+  :width: 800
+  :align: left
+
+  Example structure of an internal dataset
+
 
 Some notes on this example:
 
@@ -152,12 +159,15 @@ Some notes on this example:
 #. Use a **reference** directory to store reference experiments for a model
    system, including **historical** and **piControl** runs.
 
+Internal dataset sub-directories:
+
+
 External data
 #############
 
 The general structure of the **external** directory is similar to that of the
 **internal** one, it is divided into directories for **Data type**,
-**Data provider** and **Dataset** as seen in :numref:`data-general-structure`.
+**Data provider** and **Dataset** as seen in :numref:`general-data`.
 These terms are defined as follows:
 
 .. figure::
@@ -191,25 +201,27 @@ project (e.g. CMIP).
 **Dataset**: this is an individual experiment (e.g. rcp45), reanalysis product
 (e.g. ERA5), or observational records.
 
+External dataset sub-directories:
 
-External dataset sub-directories
-(Need a diagram here)
+.. figure::
+  external_dataset.png
+  :name: external-dataset
+  :width: 800
+  :align: left
+
+  The structure of an external dataset
 
 **original**: this is where the original data downloaded from the external
 source should be kept. This data does not have to be completely unmodified, for
 example, it could be compressed, or the file format could be converted.
 
-**derived_example**: this is where datasets that have undergone some significant
-changes (e.g. regridding) should be stored.
+**derived_<ui>_<d>**: this is where datasets that have undergone some
+significant changes (e.g. regridding) should be stored. It is recommended to
+name these directories with <ui> as user initials (e.g. tb) and <d> as
+a brief description (e.g. 1x1).
 
 **scripts**: code used for downloading the data, preprocessing the data, or
 even diagnostic scripts can exist in this directory of the data structure.
-
-**scripts/diagnostics**
-
-**scripts/download**
-
-**scripts/processing**
 
 Users directory
 ---------------
