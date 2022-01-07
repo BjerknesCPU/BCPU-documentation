@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storage structure &mdash; BCPU-documentation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Support" href="../support/support.html" />
+    <link rel="prev" title="Storage locations" href="storage_locations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BCPU-documentation
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Storage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="storage_locations.html">Storage locations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Storage structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#status-of-restructure">Status of restructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-level-structure">Top-level structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-directory">Data directory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#internal-data">Internal data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-data">External data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#users-directory">Users directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects-directory">Projects directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repos-directory">Repos directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#www-directory">www directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model">NorCPM</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BCPU-documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Storage structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/storage/storage_structure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="storage-structure">
+<h1>Storage structure<a class="headerlink" href="#storage-structure" title="Permalink to this headline"></a></h1>
+<p>This page is documentation of the BCPU storage space on NIRD.</p>
+<section id="status-of-restructure">
+<h2>Status of restructure<a class="headerlink" href="#status-of-restructure" title="Permalink to this headline"></a></h2>
+<p>We are currently in the process of creating and migrating to a new directory
+structure to hold the contents of the NS9039K project space.</p>
+</section>
+<section id="top-level-structure">
+<h2>Top-level structure<a class="headerlink" href="#top-level-structure" title="Permalink to this headline"></a></h2>
+<p>A high-level structure diagram is included below to demonstrate the top-level
+directories. This includes the directories <strong>data</strong>, <strong>users</strong>,
+<strong>projects</strong>, <strong>repos</strong> and <strong>www</strong>.</p>
+<figure class="align-default" id="top-level">
+<a class="reference internal image-reference" href="../_images/top_level.png"><img alt="An image of the top level data structure including the directories described in the next section." src="../_images/top_level.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The top-level data structure.</span><a class="headerlink" href="#top-level" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The purpose and structure of each of these directories is described in their
+respective sections of this document.</p>
+</section>
+<section id="data-directory">
+<h2>Data directory<a class="headerlink" href="#data-directory" title="Permalink to this headline"></a></h2>
+<p>The purpose of the <strong>data</strong> directory is to house data that we use within the
+BCPU. All datasets should be stored and documented here, following the
+best practices outlined on this page. This includes derived datasets, which are
+datasets to which the user has done some amount of processing, but that might
+still be useful for other users. Note that the <strong>data</strong> directory has a
+regulated structure, and so when making changes within this
+space, the rules and recommendations on this page should be followed.</p>
+<p>The data structure is composed of <em>collections</em> and <em>datasets</em>.</p>
+<p>A <em>collection</em> is a directory that contains other <em>collections</em> and/or
+<em>datasets</em>. It should contain a README.json based on the template, and
+indicate that the directory is a <em>collection</em> by having a value of
+isCollection:1.</p>
+<p>A <em>dataset</em> can contain multiple sub-directories for different variables,
+time aggregations or ensemble members. It should contain a README.json based
+on the template, and indicate that the directory is a <em>dataset</em> by having
+a value of isDataset:1.</p>
+<p>The data directory contains two top-level directories; <strong>external</strong> and
+<strong>internal</strong>. The <strong>external</strong> directory is for model, reanalysis or
+obervational data which we have downloaded from an external source,
+for example, the ERA5 reanalysis. The <strong>internal</strong> directory is for experiments
+which have been run “in-house”, for example, the output from running a new
+NorCPM experiment.</p>
+<figure class="align-default" id="general-data">
+<a class="reference internal image-reference" href="../_images/general_data.png"><img alt="An image of the general structure of the data directory." src="../_images/general_data.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">General structure of the data directory</span><a class="headerlink" href="#general-data" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The general rules that accompany this structure are as follows:</p>
+<ol class="arabic simple">
+<li><p>Data must have the same number of directory levels as in
+<a class="reference internal" href="#general-data"><span class="std std-numref">Fig. 2</span></a>. If there is a stand-alone
+experiment/dataset, it should still be placed in an
+“Experiment collection” or “Data provider” collection directory even if it is
+the only experiment/dataset in the collection. There should never be a
+mixture of collections and datasets in one directory.</p></li>
+<li><p>As shown in <a class="reference internal" href="#general-data"><span class="std std-numref">Fig. 2</span></a>, each collection and dataset
+directory must contain a README which follows the README template.</p></li>
+<li><p>Data must be contained in a sub-directory of the dataset level, rather than
+alongside the README and any other directories. For example,
+the experiment/dataset may have a large number of ensembles, and these
+should be organized into one or more sub-directories so as to make the
+other files in the experiment more discoverable, recommendations for these
+names are included in the following two sections.</p></li>
+</ol>
+<section id="internal-data">
+<h3>Internal data<a class="headerlink" href="#internal-data" title="Permalink to this headline"></a></h3>
+<p>We have designed some rules and some recommendations for organizing data from
+our internal experiments. The general structure of the <strong>internal</strong> directory
+can be seen in <a class="reference internal" href="#general-data"><span class="std std-numref">Fig. 2</span></a>.</p>
+<p>In this structure diagram, there are several required directory layers;
+<strong>Model system</strong>, <strong>Experiment collection</strong> and <strong>Experiment</strong>,
+these are all defined as follows:</p>
+<figure class="align-left" id="im-model-system" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_model_system.png"><img alt="../_images/im_model_system.png" src="../_images/im_model_system.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Model system</strong>: the version of the Earth System Model used to carry out
+experiments. Different model systems are defined by having different reference
+(historical or piControl) runs.</p>
+<figure class="align-left" id="im-experiment-collection" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_experiment_collection.png"><img alt="../_images/im_experiment_collection.png" src="../_images/im_experiment_collection.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Experiment collection</strong>: a group of experiments which have some
+similarity, usually if a user is running a set of experiments, they would create
+their own experiment collection to hold all these experiments together.</p>
+<figure class="align-left" id="im-experiment" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_experiment.png"><img alt="../_images/im_experiment.png" src="../_images/im_experiment.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Experiment</strong>: a single dataset with, for example, a particular forcing or data
+assimilation scheme.</p>
+<p><a class="reference internal" href="#internal-dataset"><span class="std std-numref">Fig. 3</span></a> shows an example for the internal data
+structure for one model system.
+We have provided some recommended directory names in grey and some example
+sub-directories in gold to complement the
+general structure. These should be used where possible and appropriate.</p>
+<figure class="align-left" id="internal-dataset">
+<a class="reference internal image-reference" href="../_images/internal_dataset.png"><img alt="../_images/internal_dataset.png" src="../_images/internal_dataset.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Example structure of an internal dataset</span><a class="headerlink" href="#internal-dataset" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Some notes on this example:</p>
+<ol class="arabic simple">
+<li><p>Where there are NorCPM runs, place them into an ‘experiment collection’
+named <strong>NorCPM</strong>.</p></li>
+<li><p>For NorCPM experiments, create separate directories <strong>hindcast</strong>
+and <strong>reanalysis</strong>.</p></li>
+<li><p>Use a <strong>reference</strong> directory to store reference experiments for a model
+system, including <strong>historical</strong> and <strong>piControl</strong> runs.</p></li>
+</ol>
+<p>Internal dataset sub-directories:</p>
+</section>
+<section id="external-data">
+<h3>External data<a class="headerlink" href="#external-data" title="Permalink to this headline"></a></h3>
+<p>The general structure of the <strong>external</strong> directory is similar to that of the
+<strong>internal</strong> one, it is divided into directories for <strong>Data type</strong>,
+<strong>Data provider</strong> and <strong>Dataset</strong> as seen in <a class="reference internal" href="#general-data"><span class="std std-numref">Fig. 2</span></a>.
+These terms are defined as follows:</p>
+<figure class="align-left" id="im-data-type" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_data_type.png"><img alt="../_images/im_data_type.png" src="../_images/im_data_type.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Data type</strong>: a collection based on the nature of the data, in practice there
+are three directories; <strong>observation</strong>, <strong>reanalysis</strong> and <strong>model</strong>.</p>
+<figure class="align-left" id="im-data-provider" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_data_provider.png"><img alt="../_images/im_data_provider.png" src="../_images/im_data_provider.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Data provider</strong>: a collection of datasets that are grouped based on data
+provider. This could be a centre (e.g. ECMWF or NOAA), or a multi-centre
+project (e.g. CMIP).</p>
+<figure class="align-left" id="im-dataset" style="width: 10%">
+<a class="reference internal image-reference" href="../_images/im_dataset.png"><img alt="../_images/im_dataset.png" src="../_images/im_dataset.png" style="width: 100px;" /></a>
+</figure>
+<p><strong>Dataset</strong>: this is an individual experiment (e.g. rcp45), reanalysis product
+(e.g. ERA5), or observational records.</p>
+<p>External dataset sub-directories:</p>
+<figure class="align-left" id="external-dataset">
+<a class="reference internal image-reference" href="../_images/external_dataset.png"><img alt="../_images/external_dataset.png" src="../_images/external_dataset.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The structure of an external dataset</span><a class="headerlink" href="#external-dataset" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>original</strong>: this is where the original data downloaded from the external
+source should be kept. This data does not have to be completely unmodified, for
+example, it could be compressed, or the file format could be converted.</p>
+<p><strong>derived/&lt;ui&gt;_&lt;d&gt;</strong>: this is where datasets that have undergone some
+significant changes (e.g. regridding) should be stored. It is recommended to
+name sub-directories with &lt;ui&gt; as user initials (e.g. tb) and &lt;d&gt; as
+a brief description (e.g. 1x1).</p>
+<p><strong>scripts</strong>: code used for downloading the data, preprocessing the data, or
+even diagnostic scripts can exist in this directory of the data structure.</p>
+</section>
+</section>
+<section id="users-directory">
+<h2>Users directory<a class="headerlink" href="#users-directory" title="Permalink to this headline"></a></h2>
+<p>personal code, plots and other files belonging to a user should be
+placed in a directory within <strong>users/</strong>. It is recommended that the name of a
+user’s directory matches their username. The structure of individual user
+directories is not regulated, and this space can be organized to the user’s
+convenience.</p>
+</section>
+<section id="projects-directory">
+<h2>Projects directory<a class="headerlink" href="#projects-directory" title="Permalink to this headline"></a></h2>
+<p>projects can contain data, scripts and outputs, and it may be
+convenient to store these related files in one directory, in this case a
+directory named after the project can be placed in the <strong>projects/</strong> directory.
+The organization of these spaces is the responsibility of the project manager.</p>
+</section>
+<section id="repos-directory">
+<h2>Repos directory<a class="headerlink" href="#repos-directory" title="Permalink to this headline"></a></h2>
+<p>local copies of shared Git repositories will reside here, there
+is a version of all of these files within the BjerknesCPU GitHub.</p>
+</section>
+<section id="www-directory">
+<h2>www directory<a class="headerlink" href="#www-directory" title="Permalink to this headline"></a></h2>
+<p>this directory contains files to be accessible through the web
+interface at <a class="reference external" href="http://ns9039k.web.sigma2.no/">http://ns9039k.web.sigma2.no/</a>.</p>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this headline"></a></h2>
+<p>For further information, or if you are having issues with the new data
+structure, please contact BCPU-support, or make an issue in the
+BjerknesCPU/BCPU-support GitHub repository.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="storage_locations.html" class="btn btn-neutral float-left" title="Storage locations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../support/support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, BCPU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
