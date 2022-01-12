@@ -19,6 +19,12 @@ Contents
 
 .. toctree::
   :maxdepth: 1
+  :caption: Documentation
+
+  documentation/contribute
+
+.. toctree::
+  :maxdepth: 1
   :caption: Links
 
   NorCPM <https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model>
