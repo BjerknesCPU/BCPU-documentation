@@ -3,6 +3,11 @@ Storage structure
 
 This page is documentation of the BCPU storage space on NIRD.
 
+.. note::
+
+  This page is currently under development, so expect frequent changes to the
+  data structure, as it evolves and implementation begins. 
+
 Status of restructure
 ---------------------
 
