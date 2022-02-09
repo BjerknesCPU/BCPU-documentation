@@ -19,9 +19,9 @@ Contents
 
 .. toctree::
   :maxdepth: 1
-  :caption: Documentation
+  :caption: Contribute
 
-  documentation/contribute
+  contribute/contribute_documentation
 
 .. toctree::
   :maxdepth: 1
