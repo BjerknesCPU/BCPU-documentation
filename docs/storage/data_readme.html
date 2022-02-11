@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>README files &mdash; BCPU-documentation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Support" href="../support/support.html" />
+    <link rel="prev" title="Storage structure" href="storage_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BCPU-documentation
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Storage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="storage_locations.html">Storage locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_structure.html">Storage structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">README files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contribute_documentation.html">Contribute documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model">NorCPM</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BCPU-documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>README files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/storage/data_readme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="readme-files">
+<h1>README files<a class="headerlink" href="#readme-files" title="Permalink to this headline"></a></h1>
+<p>README files are files which contain information about the data or software
+that they are located with. In the NS9039K data structure, there are
+README.json files, which provide metadata on the datasets which we store.</p>
+<p>When adding or modiying a directory in the /projects/NS9039K/data directory,
+make sure to add or update the README.json file. If you need to add a new
+README.json, please copy an existing README and update the fields, or save the
+following text into a file called ‘README.json’ and edit as required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;isDataset&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;isCollection&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;ERA Interim&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A global atmospheric reanalysis produced by ECMWF, it has been superseded by the ERA5 reanalysis.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ownerEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;tarkan.bilge@uib.no&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;publicationType&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;publicationDOI&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+
+    <span class="s2">&quot;locationPoint&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;locationBox&quot;</span><span class="p">:</span> <span class="s2">&quot;name=Global; eastlimit=0; westlimit=359.25; northlimit=90; southlimit=-90&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;timePeriod&quot;</span><span class="p">:</span> <span class="s2">&quot;start=1979-01-01; end=2019-08-31&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;dataSource&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era-interim&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;history&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">&quot;2020-09-01&quot;</span> <span class="p">:</span> <span class="s2">&quot;Data downloaded.&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;2020-09-20&quot;</span> <span class="p">:</span> <span class="s2">&quot;Converted GRIB files to NetCDF format.&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline"></a></h2>
+<p><strong>isDataset</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the directory is a ‘dataset’ as defined by
+the <a class="reference internal" href="storage_structure.html"><span class="doc">storage structure</span></a>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p><strong>isCollection</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the directory is a ‘collection’ of datasets
+or of more collections, as defined in the
+<a class="reference internal" href="storage_structure.html"><span class="doc">storage structure</span></a>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p><strong>title</strong>: string which briefly describes the collection or dataset, e.g.
+<code class="docutils literal notranslate"><span class="pre">&quot;CMIP6&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ERA5&quot;</span></code>.</p>
+<p><strong>version</strong>: version of the dataset if known, otherwise <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p><strong>description</strong>: a description of the collection or dataset.</p>
+<p><strong>ownerEmail</strong>: the email address of the owner of the dataset.</p>
+<p><strong>publicationType</strong>: only relevant for data which has an internal publication
+associated with it. <code class="docutils literal notranslate"><span class="pre">null</span></code> if no publication. Otherwise one of the following:
+<code class="docutils literal notranslate"><span class="pre">&quot;Published&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Accepted&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Preparation&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Conference&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;Other</span> <span class="pre">presentation&quot;</span></code>.</p>
+<p><strong>publicationDOI</strong>: DOI of above publication, or <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p><strong>locationPoint</strong>: the location of the data if it is point-based rather than
+gridded. Use this
+<a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-point/">format</a>.</p>
+<p><strong>locationBox</strong>: the latitude-longitude or depth box of the data in this
+<a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-box/">format</a>.</p>
+<p><strong>timePeriod</strong>: the time period of the data as a string in this
+<a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-period/">format</a>.</p>
+<p><strong>dataSource</strong>: URL of data source as a string.</p>
+<p><strong>history</strong>: history of the data collection or dataset with dates. If new data
+is added, or data is modified or processed, update the history with a brief
+description of the action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The README files have the extension .json, and are written as JSON files. JSON
+is a data interchange format which easily allows us to write metadata into a
+text file and then read it with scripts.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="storage_structure.html" class="btn btn-neutral float-left" title="Storage structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../support/support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, BCPU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
