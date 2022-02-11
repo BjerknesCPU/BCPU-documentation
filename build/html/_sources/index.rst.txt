@@ -10,6 +10,7 @@ Contents
 
   storage/storage_locations
   storage/storage_structure
+  storage/data_readme
 
 .. toctree::
   :maxdepth: 1
