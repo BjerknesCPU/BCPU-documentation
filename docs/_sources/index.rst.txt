@@ -22,3 +22,4 @@ Contents
         
   Storage <https://bjerknescpu.github.io/BCPU-data-structure/index.html>
   NorCPM <https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model>
+  Planned experiments <https://bjerknescpu.github.io/BCPU-documentation/planned_experiments.pdf>
