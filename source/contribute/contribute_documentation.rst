@@ -2,37 +2,34 @@ Contribute documentation
 ========================
 
 This page describes the process of contributing to this documentation. This is
-a good place to place documentation on datasets, software or projects within the
+a good place to place documentation on software or projects within the
 BCPU. There is a simple six-step workflow described in the first section,
 and there are more detailed notes on each step to guide you through the process.
 
 Six steps to contribute documentation
 -------------------------------------
 
-#. Git clone the
-   `BCPU-documentation <https://github.com/BjerknesCPU/BCPU-documentation>`_
-   repository to NIRD in your user directory in
-   the location /project/NS9039K/www/<user>/.
+#. Get the up-to-date code.
+  
+    #. If this is your first time contributing to the documentation, :ref:`Clone the GitHub repository`.
 
-#. Make changes or add documentation files in the source directory
-   (BCPU-documentation/source).
+    #. If not, then you need to :ref:`Pull the most up-to-date documentation`.
 
-#. In the root directory (BCPU-documentation/) call the command ``make github``
-   which will build html files and put them into the docs/ directory.
+#. :ref:`Make changes to the documentation files` in the source directory.
 
-#. Check your changes `here <http://ns9039k.web.sigma2.no>`_
-   before pushing them to GitHub.
+#. :ref:`Build the documentation` in the root directory.
 
-#. Add, commit and push your changes to GitHub.
+#. :ref:`Check your changes` before pushing them to GitHub.
 
-#. See the published changes
-   `online <https://bjerknescpu.github.io/BCPU-documentation/>`_
-   (this can take a couple of minutes to update).
+#. :ref:`Add, commit and push your changes` to GitHub.
 
-Cloning the GitHub repository
-#############################
+#. :ref:`See the published changes`.
 
-You only need to do this step the first time you modify the documentation.
+Clone the GitHub repository
+---------------------------
+If this is the first time you contribute to the documentation.
+
+This will need to clone the repository `BCPU-documentation <https://github.com/BjerknesCPU/BCPU-documentation>`_.
 
 You should clone the GitHub repository to NIRD so that you have all the tools
 available for this workflow. First navigate to /projects/NS9039K/www/<user>
@@ -51,8 +48,22 @@ If you have never used the organisational GitHub before, you may have to
 If you have issues with this step, or with access to the GitHub repository,
 please contact our :doc:`internal support <../support/support>`.
 
-Making changes to the documentation files
-#########################################
+Pull the most up-to-date documentation 
+--------------------------------------
+
+If this is not your first time contributing to documentation. 
+
+In your local directory of the Git repository (by standard named BCPU-documentation) switch to the main branch. ::
+
+  git checkout main 
+
+Then pull the remote main branch. :: 
+
+  git pull origin main
+
+
+Make changes to the documentation files
+---------------------------------------
 
 Within the BCPU-documentation/ directory, all changes are made to the 'source'
 which exists within the source/ directory. In this documentation, the source
@@ -129,7 +140,7 @@ the filename is entered as its path from the source directory, but without the
 
 
 Build the documentation
-#######################
+-----------------------
 
 The documentation is built using
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_. In order to use Sphinx, you
@@ -152,7 +163,7 @@ GitHub. Have a look at your changes before you make them visible to
 everyone else (see next step).
 
 Check your changes
-##################
+------------------
 
 Once you have run the ``make github`` command, the built files should be
 available in the docs/ directory. It is good practice to view these
@@ -164,7 +175,7 @@ of the documentation. From here you should be able to check what the
 documentation looks like before you push it to our shared website.
 
 Add, commit and push your changes
-#################################
+---------------------------------
 
 Use git to push your changes to our shared website.
 
@@ -178,6 +189,9 @@ Use git to push your changes to our shared website.
 * Run the command ``git push`` which will push your changes to the remote
   repository, which will automatically update the GitHub documentation page.
 
-Once you have done this, the
+See the published changes
+-------------------------
+
+Once you have done pushed the changes to the GitHub, the
 `online pages <https://bjerknescpu.github.io/BCPU-documentation/>`_ should
-automatically update after 1-2 minutes.
+automatically update after 1-2 minutes (this is not immediate). 
