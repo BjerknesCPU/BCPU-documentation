@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Processing seasonal forecast &mdash; BCPU-documentation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Support" href="../support/support.html" />
+    <link rel="prev" title="Running the seasonal forecast" href="run_seasonal_forecast.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BCPU-documentation
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Forecast</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="run_seasonal_forecast.html">Running the seasonal forecast</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Processing seasonal forecast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-processing">Metadata processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-standard-plots">Generating standard plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-the-website">Updating the website</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contribute_documentation.html">Contribute documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://bjerknescpu.github.io/BCPU-data-structure/index.html">Storage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model">NorCPM</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://bjerknescpu.github.io/BCPU-data-structure/test_pdf.pdf">Experiment plan</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BCPU-documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Processing seasonal forecast</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/forecast/process_seasonal_forecast.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="processing-seasonal-forecast">
+<h1>Processing seasonal forecast<a class="headerlink" href="#processing-seasonal-forecast" title="Permalink to this headline"></a></h1>
+<p>This page provides documentation on how to process the seasonal forecast every month. This begins with running scripts that modify metadata so that the forecast can be provided in a C3S-like format to the Climate Futures project. After this, some standard plots and indices are produced, and <a class="reference external" href="http://ns9039k.web.sigma2.no/tbi045/seasonal_forecast/index.html">the website</a>. is updated.</p>
+<section id="metadata-processing">
+<h2>Metadata processing<a class="headerlink" href="#metadata-processing" title="Permalink to this headline"></a></h2>
+<p>In order to perform the metadata processing, you will need to load the shared conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">python3env</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">p3env</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Then you need a copy of the GitHub repository with the processing scripts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">BjerknesCPU</span><span class="o">/</span><span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Now run h0.atm and h2.atm to process monthly and six-hourly data respectively.
+You need to modify the INPUT_GLOB and OUTPUT_DIR variables in the Input section of both files, then run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">h0</span><span class="o">.</span><span class="n">atm</span>
+<span class="n">python</span> <span class="n">h2</span><span class="o">.</span><span class="n">atm</span>
+</pre></div>
+</div>
+<p>These should produce files in your selected output directory which have modified metadata.
+These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">climate_futures</span><span class="o">/</span><span class="n">forecast</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Email Alex to let him know that the forecast is complete.</p>
+</section>
+<section id="generating-standard-plots">
+<h2>Generating standard plots<a class="headerlink" href="#generating-standard-plots" title="Permalink to this headline"></a></h2>
+<p>In order to produce ENSO and IOD index plots, we need up-to-date ERA5 data, so update this first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">scripts</span>
+<span class="n">python</span> <span class="n">download_era5_2022</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Convert the ERA5 data from GRIB to NetCDF, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">monthly_single_level</span><span class="o">/</span><span class="n">monthly_averaged_reanalysis</span><span class="o">/</span><span class="n">sst</span><span class="o">/</span>
+<span class="n">cdo</span> <span class="o">-</span><span class="n">f</span> <span class="n">nc</span> <span class="n">copy</span> <span class="n">ERA5_sea_surface_temperature_202201</span><span class="o">-</span><span class="mf">202209.</span><span class="n">grib</span> <span class="n">ERA5_034_202201</span><span class="o">-</span><span class="mf">202209.</span><span class="n">grib</span>
+</pre></div>
+</div>
+<p>Now you can run the two index plots. Make sure to update the input files first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span>
+<span class="n">python</span> <span class="n">enso_plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">iod_plot</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Run the mean anomaly and quantile plotting scripts. Make sure to update the input and output locations and dates. Run twice, once for ‘global’ and once for ‘europe’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">mean_anomaly_plots</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">quantile_plots</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This produces output plots in your specified directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="updating-the-website">
+<h2>Updating the website<a class="headerlink" href="#updating-the-website" title="Permalink to this headline"></a></h2>
+<p>You need to update the index file to display the new plots on the website.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>In this file, you must:</p>
+<ol class="arabic simple">
+<li><p>Add the current date to the issueListQuantile</p></li>
+<li><p>Input the current date as the issueStringQuantile</p></li>
+<li><p>Add the current date to the issueListAnomaly</p></li>
+<li><p>Input the current date as the issueStringAnomaly</p></li>
+<li><p>Add the current date as the top option in the issueSelectQuantile form</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;form&gt;
+&lt;b&gt; Issue Date &lt;/b&gt;
+&lt;select id=&quot;issueSelectQuantile&quot; onchange=&quot;updateIssueQuantile()&quot; autocomplete=&quot;off&quot;&gt;
+&lt;option selected&gt; 2022-10 &lt;/option&gt; &lt;!-- Replace with most recent date --&gt;
+&lt;option&gt; 2022-09 &lt;/option&gt; &lt;!-- Add extra line for second most recent date --&gt;
+&lt;option&gt; 2022-08 &lt;/option&gt;
+&lt;option&gt; 2022-07 &lt;/option&gt;
+&lt;option&gt; 2022-06 &lt;/option&gt;
+&lt;option&gt; 2022-05 &lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Add the current date as the top option in the issueSelectAnomaly form</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;form&gt;
+&lt;b&gt; Issue Date &lt;/b&gt;
+&lt;select id=&quot;issueSelectAnomaly&quot; onchange=&quot;updateIssueAnomaly()&quot; autocomplete=&quot;off&quot;&gt;
+&lt;option selected&gt; 2022-10 &lt;/option&gt; !-- Replace with most recent date --&gt;
+&lt;option&gt; 2022-09 &lt;/option&gt; !-- Add extra line for second most recent date --&gt;
+&lt;option&gt; 2022-08 &lt;/option&gt;
+&lt;option&gt; 2022-07 &lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Update IOD and ENSO plot links to current date.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">img</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;nino34Image&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;plots/202210_enso.png&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width:1000px&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">img</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;iodImage&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;plots/202210_iod.png&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width:1000px&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now the forecast production and processing is complete! Have a look at the forecasts <a class="reference external" href="http://ns9039k.web.sigma2.no/tbi045/seasonal_forecast/index.html">here</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run_seasonal_forecast.html" class="btn btn-neutral float-left" title="Running the seasonal forecast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../support/support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, BCPU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

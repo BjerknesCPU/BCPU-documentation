@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running the seasonal forecast &mdash; BCPU-documentation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Processing seasonal forecast" href="process_seasonal_forecast.html" />
+    <link rel="prev" title="BCPU documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BCPU-documentation
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Forecast</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running the seasonal forecast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#update-the-data-for-assimilation">Update the data for assimilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-analysis">Run the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-prediction">Run the prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clearing-up">Clearing up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process_seasonal_forecast.html">Processing seasonal forecast</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/contribute_documentation.html">Contribute documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://bjerknescpu.github.io/BCPU-data-structure/index.html">Storage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model">NorCPM</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://bjerknescpu.github.io/BCPU-data-structure/test_pdf.pdf">Experiment plan</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BCPU-documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Running the seasonal forecast</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/forecast/run_seasonal_forecast.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-the-seasonal-forecast">
+<h1>Running the seasonal forecast<a class="headerlink" href="#running-the-seasonal-forecast" title="Permalink to this headline"></a></h1>
+<p>This page provides documentation on how to run the NorCPM seasonal forecast.</p>
+<section id="update-the-data-for-assimilation">
+<h2>Update the data for assimilation<a class="headerlink" href="#update-the-data-for-assimilation" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NOAA SST data is changing from OISST to OISSTv2.1 for the December 2022 forecast.
+Some of these instructions will change during this transition.</p>
+</div>
+<p>Before running the analysis to the present date, new observational data must be downloaded.</p>
+<p>Update the temperature and salinity profile data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">noresm</span><span class="o">/</span><span class="n">norcpm</span><span class="o">/</span><span class="n">Obs</span><span class="o">/</span><span class="n">TEM</span><span class="o">/</span><span class="n">EN422</span><span class="o">/</span>
+<span class="o">./</span><span class="n">Update_profile</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Take a note of the most recent final and preliminary files.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EN</span><span class="mf">.4.2.2</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">g10</span><span class="mf">.202207</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">EN</span><span class="mf">.4.2.2</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">g10</span><span class="mf">.202208</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+</section>
+<section id="run-the-analysis">
+<h2>Run the analysis<a class="headerlink" href="#run-the-analysis" title="Permalink to this headline"></a></h2>
+<p>Move into your analysis directory, and modify the start date (e.g. 2022-12-15-00000) in your settings file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">analysis</span><span class="o">/</span><span class="n">setting</span><span class="o">/</span>
+<span class="n">vi</span> <span class="n">default_setting_VCF</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Check if the correct restart files for your start date exist in your run directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">noresm</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_assim_19811115</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_assim_19811115_mem01</span><span class="o">/</span><span class="n">run</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>If they do not, then you need to copy them over.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">analysis</span><span class="o">/</span><span class="n">script_pot</span><span class="o">/</span><span class="n">mv_rst_from_archive_to_run</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To run the analysis, make sure that you load the correct environments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">analysis</span><span class="o">/</span><span class="n">load_envs</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sbatch</span> <span class="n">submit_reanalysis_VCF</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</section>
+<section id="run-the-prediction">
+<h2>Run the prediction<a class="headerlink" href="#run-the-prediction" title="Permalink to this headline"></a></h2>
+<p>Move into prediction directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">prediction</span><span class="o">/</span><span class="n">use_cases</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Create a new case .in file and change the date (two places in file) e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_20221015</span><span class="o">.</span><span class="ow">in</span> <span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_</span><span class="o">&lt;</span><span class="n">date</span><span class="o">&gt;.</span><span class="ow">in</span>
+</pre></div>
+</div>
+<p>Create a template, create and ensemble and submit the prediction.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">create_template</span><span class="o">.</span><span class="n">sh</span> <span class="n">use_cases</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_</span><span class="o">&lt;</span><span class="n">date</span><span class="o">&gt;.</span><span class="ow">in</span>
+<span class="o">./</span><span class="n">create_ensemble</span><span class="o">.</span><span class="n">sh</span> <span class="n">use_cases</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_</span><span class="o">&lt;</span><span class="n">date</span><span class="o">&gt;.</span><span class="ow">in</span>
+<span class="o">./</span><span class="n">submit_ensemble</span><span class="o">.</span><span class="n">sh</span> <span class="n">use_cases</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_</span><span class="o">&lt;</span><span class="n">date</span><span class="o">&gt;.</span><span class="ow">in</span>
+</pre></div>
+</div>
+</section>
+<section id="clearing-up">
+<h2>Clearing up<a class="headerlink" href="#clearing-up" title="Permalink to this headline"></a></h2>
+<p>Run mergediag.sh (modify the directory name in the file).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">tools</span>
+<span class="n">vi</span> <span class="n">mergediag</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sbatch</span> <span class="n">mergediag</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>This produces a merged directory in the archive (takes some time) e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_20220915</span><span class="o">/</span><span class="n">norcpm</span><span class="o">-</span><span class="n">cf</span><span class="o">-</span><span class="n">system1_hindcast1_20220915_mem01</span><span class="o">-</span><span class="mi">60</span>
+</pre></div>
+</div>
+<p>Copy forecast files to NIRD, using scp or rsync from above directory. e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/work/users/tbi045/archive/norcpm-cf-system1_hindcast1_20220915/
+scp --r norcpm-cf-system1_hindcast1_20220915_mem01-60/ $USER@login1-trd.nird.sigma2.no:/projects/NS9039K/shared/ClimateFutures/new/
+</pre></div>
+</div>
+<p>Delete restart files that will not be needed anymore. You need to determine which restart files you will need next month.
+The analysis next month should start from the last ‘final’ assimilation files that were used, so in this example, if temperature and salinity profiles were noted down as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EN</span><span class="mf">.4.2.2</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">g10</span><span class="mf">.202207</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">EN</span><span class="mf">.4.2.2</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">g10</span><span class="mf">.202208</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+<p>Then the analysis will continue from 202207, so keep these restart files, with care, remove any others e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm -rf /norcpm-cf-system1_assim_19811115_mem??/rest/2022-04-15-00000/
+</pre></div>
+</div>
+<p>Compress files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">people</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">NorCPM</span><span class="o">/</span><span class="n">tools</span>
+<span class="n">sbatch</span> <span class="n">fanf_noresm2netcdf4</span><span class="o">.</span><span class="n">pbs</span>
+</pre></div>
+</div>
+<p>Move analysis files to NIRD.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span>
+<span class="o">./</span><span class="n">Transfer_reana</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Check the files on NIRD, and this concludes generation of the forecast. For steps on processing the output, please see the separate documentation page.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="BCPU documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="process_seasonal_forecast.html" class="btn btn-neutral float-right" title="Processing seasonal forecast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, BCPU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
