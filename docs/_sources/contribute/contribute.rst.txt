@@ -5,8 +5,8 @@ This documentation provides instructions for how to contribute your own document
 
 .. toctree::
    :maxdepth: 2
-   :numbered: 
 
    contribute_documentation.rst 
    example.rst
+   example_index.rst
                                                                                                                         

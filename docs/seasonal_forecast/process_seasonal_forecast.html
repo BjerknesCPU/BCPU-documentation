@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2. Processing seasonal forecast &mdash; BCPU-documentation 0.1 documentation</title>
+  <title>Processing seasonal forecast &mdash; BCPU-documentation 0.1 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Support" href="../support/support.html" />
-    <link rel="prev" title="1. Running the seasonal forecast" href="run_seasonal_forecast.html" /> 
+    <link rel="prev" title="Running the seasonal forecast" href="run_seasonal_forecast.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,11 +97,11 @@
               <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="seasonal_forecast.html">Seasonal forecast</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="run_seasonal_forecast.html">1. Running the seasonal forecast</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Processing seasonal forecast</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#metadata-processing">2.1. Metadata processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generating-standard-plots">2.2. Generating standard plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#updating-the-website">2.3. Updating the website</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run_seasonal_forecast.html">Running the seasonal forecast</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Processing seasonal forecast</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-processing">Metadata processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-standard-plots">Generating standard plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-the-website">Updating the website</a></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +164,7 @@
         
           <li><a href="seasonal_forecast.html">Seasonal forecast</a> &raquo;</li>
         
-      <li><span class="section-number">2. </span>Processing seasonal forecast</li>
+      <li>Processing seasonal forecast</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,10 +184,10 @@
            <div itemprop="articleBody">
             
   <section id="processing-seasonal-forecast">
-<h1><span class="section-number">2. </span>Processing seasonal forecast<a class="headerlink" href="#processing-seasonal-forecast" title="Permalink to this heading">¶</a></h1>
+<h1>Processing seasonal forecast<a class="headerlink" href="#processing-seasonal-forecast" title="Permalink to this heading">¶</a></h1>
 <p>This page provides documentation on how to process the seasonal forecast every month. This begins with running scripts that modify metadata so that the forecast can be provided in a C3S-like format to the Climate Futures project. After this, some standard plots and indices are produced, and <a class="reference external" href="http://ns9039k.web.sigma2.no/tbi045/seasonal_forecast/index.html">the website</a>. is updated.</p>
 <section id="metadata-processing">
-<h2><span class="section-number">2.1. </span>Metadata processing<a class="headerlink" href="#metadata-processing" title="Permalink to this heading">¶</a></h2>
+<h2>Metadata processing<a class="headerlink" href="#metadata-processing" title="Permalink to this heading">¶</a></h2>
 <p>In order to perform the metadata processing, you will need to load the shared conda environment.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">python3env</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">p3env</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
@@ -210,7 +210,7 @@ These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
 <p>Email Alex to let him know that the forecast is complete.</p>
 </section>
 <section id="generating-standard-plots">
-<h2><span class="section-number">2.2. </span>Generating standard plots<a class="headerlink" href="#generating-standard-plots" title="Permalink to this heading">¶</a></h2>
+<h2>Generating standard plots<a class="headerlink" href="#generating-standard-plots" title="Permalink to this heading">¶</a></h2>
 <p>In order to produce ENSO and IOD index plots, we need up-to-date ERA5 data, so update this first:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">scripts</span>
 <span class="n">python</span> <span class="n">download_era5_2022</span><span class="o">.</span><span class="n">py</span>
@@ -238,7 +238,7 @@ These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
 </div>
 </section>
 <section id="updating-the-website">
-<h2><span class="section-number">2.3. </span>Updating the website<a class="headerlink" href="#updating-the-website" title="Permalink to this heading">¶</a></h2>
+<h2>Updating the website<a class="headerlink" href="#updating-the-website" title="Permalink to this heading">¶</a></h2>
 <p>You need to update the index file to display the new plots on the website.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
@@ -296,7 +296,7 @@ These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../support/support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="run_seasonal_forecast.html" class="btn btn-neutral float-left" title="1. Running the seasonal forecast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="run_seasonal_forecast.html" class="btn btn-neutral float-left" title="Running the seasonal forecast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
