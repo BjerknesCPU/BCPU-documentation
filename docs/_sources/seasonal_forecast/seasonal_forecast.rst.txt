@@ -6,6 +6,7 @@ This documentation is designed to allow the user to run and post-process the sea
 .. toctree::
    :maxdepth: 2
 
+   about_seasonal_forecast.rst
    run_seasonal_forecast.rst
    process_seasonal_forecast.rst
 

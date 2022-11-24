@@ -14,7 +14,7 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Links
+   :caption: Links:
 
    Storage <https://bjerknescpu.github.io/BCPU-data-structure/index.html>
    NorCPM <https://wiki.uib.no/norcpm/index.php/Norwegian_Climate_Prediction_Model>
