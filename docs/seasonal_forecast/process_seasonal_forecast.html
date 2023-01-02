@@ -186,14 +186,14 @@
             
   <section id="processing-seasonal-forecast">
 <h1>Processing seasonal forecast<a class="headerlink" href="#processing-seasonal-forecast" title="Permalink to this heading">¶</a></h1>
-<p>This page provides documentation on how to process the seasonal forecast every month. This begins with running scripts that modify metadata so that the forecast can be provided in a C3S-like format to the Climate Futures project. After this, some standard plots and indices are produced, and <a class="reference external" href="http://ns9039k.web.sigma2.no/tbi045/seasonal_forecast/index.html">the website</a>. is updated.</p>
+<p>This page provides documentation on how to process the seasonal forecast every month. This begins with running scripts that modify metadata so that the forecast can be provided in a C3S-like format to the Climate Futures project. After this, some standard plots and indices are produced, and <a class="reference external" href="http://ns9039k.web.sigma2.no/seasonal_forecast/index.html">the website</a>. is updated.</p>
 <section id="metadata-processing">
 <h2>Metadata processing<a class="headerlink" href="#metadata-processing" title="Permalink to this heading">¶</a></h2>
-<p>In order to perform the metadata processing, you will need to load the shared conda environment.</p>
+<p>In order to perform the metadata processing, you will need to load the shared conda environment on NIRD.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">python3env</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">p3env</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>Then you need a copy of the GitHub repository with the processing scripts.</p>
+<p>Then you need a copy of the GitHub repository with the processing scripts. If you don’t already have this, then take a clone of it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">BjerknesCPU</span><span class="o">/</span><span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
@@ -204,44 +204,58 @@ You need to modify the INPUT_GLOB and OUTPUT_DIR variables in the Input section 
 </pre></div>
 </div>
 <p>These should produce files in your selected output directory which have modified metadata.
-These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">climate_futures</span><span class="o">/</span><span class="n">forecast</span><span class="o">/</span>
+These should be placed somewhere that can be accessed by Alex Lenkoski, the current location is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">climate_futures</span><span class="o">/</span><span class="n">forecast</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Email Alex to let him know that the forecast is complete.</p>
+<p>Please follow the existing directory structure to make Alex’s processing easier.
+Email Alex (<a class="reference external" href="mailto:lenkoski&#37;&#52;&#48;nr&#46;no">lenkoski<span>&#64;</span>nr<span>&#46;</span>no</a>) and Ole (<a class="reference external" href="mailto:owul&#37;&#52;&#48;norceresearch&#46;no">owul<span>&#64;</span>norceresearch<span>&#46;</span>no</a>) to let them know that the forecast is complete.</p>
 </section>
 <section id="generating-standard-plots">
 <h2>Generating standard plots<a class="headerlink" href="#generating-standard-plots" title="Permalink to this heading">¶</a></h2>
+<p>Now the delivery to the Climate Futures team is complete, we will generate some plots and place them on the NS9039K website.</p>
 <p>In order to produce ENSO and IOD index plots, we need up-to-date ERA5 data, so update this first:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">scripts</span>
-<span class="n">python</span> <span class="n">download_era5_2022</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">download_era5_recent</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>Convert the ERA5 data from GRIB to NetCDF, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">monthly_single_level</span><span class="o">/</span><span class="n">monthly_averaged_reanalysis</span><span class="o">/</span><span class="n">sst</span><span class="o">/</span>
-<span class="n">cdo</span> <span class="o">-</span><span class="n">f</span> <span class="n">nc</span> <span class="n">copy</span> <span class="n">ERA5_sea_surface_temperature_202201</span><span class="o">-</span><span class="mf">202209.</span><span class="n">grib</span> <span class="n">ERA5_034_202201</span><span class="o">-</span><span class="mf">202209.</span><span class="n">grib</span>
+<p>This should download ERA5 data for 202101-Present and run a conversion to NetCDF using CDO.
+Check this downloaded correctly and converted to NetCDF:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">reanalysis</span><span class="o">/</span><span class="n">ECMWF</span><span class="o">/</span><span class="n">ERA5</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">monthly_single_level</span><span class="o">/</span><span class="n">monthly_averaged_reanalysis</span><span class="o">/</span><span class="n">sst</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Now you can run the two index plots. Make sure to update the input files first.</p>
+<p>Then modify the two index plot scripts. You need to modify two input arguments at the top (marked clearly within the scripts).
+The scripts should output the ENSO and IOD plots to the correct location.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span>
+<span class="n">vi</span> <span class="n">enso_plot</span><span class="o">.</span><span class="n">py</span>
 <span class="n">python</span> <span class="n">enso_plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">vi</span> <span class="n">iod_plot</span><span class="o">.</span><span class="n">py</span>
 <span class="n">python</span> <span class="n">iod_plot</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>Run the mean anomaly and quantile plotting scripts. Make sure to update the input and output locations and dates. Run twice, once for ‘global’ and once for ‘europe’</p>
+<p>Run the mean anomaly and quantile plotting scripts. Make sure to update the input and output locations and dates. Run twice, once for ‘global’ and once for ‘europe’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">mean_anomaly_plots</span><span class="o">.</span><span class="n">py</span>
 <span class="n">python</span> <span class="n">quantile_plots</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>This produces output plots in your specified directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Quantile and mean anomaly plots are generated by comparing the forecast to pre-calculated mean and quantile values, these values exist in files in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">thresholds</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In the normal seasonal forecast production, these do not have to be modified, but if there are changes to the data request (e.g. modification of the grid or addition of variables) then these will have to be regenerated using the scripts in the C3S-NorCPM-CF repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_mean_thresholds</span><span class="o">.</span><span class="n">py</span>
+<span class="n">calculate_quantile_thresholds</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </section>
 <section id="updating-the-website">
 <h2>Updating the website<a class="headerlink" href="#updating-the-website" title="Permalink to this heading">¶</a></h2>
 <p>You need to update the index file to display the new plots on the website.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">tbi045</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">seasonal_forecast</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
 <p>In this file, you must:</p>
@@ -280,13 +294,9 @@ These should be placed somewhere that can be accessed by Alex Lenkoski, e.g.</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
-<li><p>Update IOD and ENSO plot links to current date.</p></li>
+<li><p>Add the date to issueSelectIOD and issueSelect ENSO as above.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">img</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;nino34Image&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;plots/202210_enso.png&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width:1000px&quot;</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">img</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;iodImage&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;plots/202210_iod.png&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width:1000px&quot;</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>Now the forecast production and processing is complete! Have a look at the forecasts <a class="reference external" href="http://ns9039k.web.sigma2.no/tbi045/seasonal_forecast/index.html">here</a>.</p>
+<p>Now the forecast production and processing is complete! Have a look at the forecasts <a class="reference external" href="http://ns9039k.web.sigma2.no/seasonal_forecast/index.html">here</a>.</p>
 </section>
 </section>
 
