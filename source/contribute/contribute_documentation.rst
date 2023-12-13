@@ -35,7 +35,7 @@ where <user> is a user directory owned by you. If you do not have a directory
 in /projects/NS9039K/www/ then create one with your name, username or initials.
 
 Once you are in this directory, clone the repository with the command
-``git clone ssh://git@github.com/BjerknesCPU/BCPU-documentation.git``
+``git clone git@github.com:BjerknesCPU/BCPU-documentation.git``
 which will produce a directory 'BCPU-documentation/' in your current working
 directory. Change directory into this directory.
 
@@ -136,8 +136,7 @@ our shared conda environment, which can be activated as follows:
 
 .. code-block:: bash
 
-  $ source /opt/anaconda3/etc/profile.d/conda.sh
-  $ conda activate /projects/NS9039K/shared/python3env
+  $ source /nird/home/pgchiu/mamba/py3env2.bash
 
 The documentation is built by calling: ``make github`` in the
 BCPU-documentation/ directory.
