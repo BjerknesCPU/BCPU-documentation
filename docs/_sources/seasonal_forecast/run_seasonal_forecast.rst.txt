@@ -15,10 +15,12 @@ The Met Office provides monthly updates to EN4.2.2. observational temperature an
 
 1 Update the data for assimilation
 ------------------------------------
+
 The first step in running the seasonal forecast is to update the observational data that is assimilated into the analysis. The steps below show how it is done for the forecast initialized in December 2024 on Betzy. 
 
 
-1. Update the temperature and salinity profile data
+Update the temperature and salinity profile data
+^^^^^^
 
 ::
 
@@ -29,7 +31,9 @@ Download the temperature and salinity profiles from the UK Met Office (https://w
   ./retrieveEN4.sh
 
 
-2. Update NOAA OISST ver.2.1 data for the two previous months
+Update NOAA OISST ver.2.1 data for the two previous months
+^^^^^^
+
 If the daily OISST data server (https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/) is available: ::
 
   cd /cluster/projects/nn9039k/inputdata/obs/SST/NOAA/hires

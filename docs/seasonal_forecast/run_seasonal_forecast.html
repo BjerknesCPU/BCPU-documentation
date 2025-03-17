@@ -47,7 +47,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="seasonal_forecast.html">Seasonal forecast</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="about_seasonal_forecast.html">About the seasonal forecast</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Running the seasonal forecast</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#update-the-data-for-assimilation">1 Update the data for assimilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-the-data-for-assimilation">1 Update the data for assimilation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-the-temperature-and-salinity-profile-data">Update the temperature and salinity profile data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-noaa-oisst-ver-2-1-data-for-the-two-previous-months">Update NOAA OISST ver.2.1 data for the two previous months</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#install-norcpm-forecast-system">2 Install NorCPM forecast system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-workflow-script">3 Create workflow script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-analysis-experiment-if-not-exist">4 Create analysis experiment (if not exist)</a></li>
@@ -111,9 +115,8 @@
 <section id="update-the-data-for-assimilation">
 <h2>1 Update the data for assimilation<a class="headerlink" href="#update-the-data-for-assimilation" title="Link to this heading"></a></h2>
 <p>The first step in running the seasonal forecast is to update the observational data that is assimilated into the analysis. The steps below show how it is done for the forecast initialized in December 2024 on Betzy.</p>
-<ol class="arabic simple">
-<li><p>Update the temperature and salinity profile data</p></li>
-</ol>
+<section id="update-the-temperature-and-salinity-profile-data">
+<h3>Update the temperature and salinity profile data<a class="headerlink" href="#update-the-temperature-and-salinity-profile-data" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">inputdata</span><span class="o">/</span><span class="n">obs</span><span class="o">/</span><span class="n">TEM</span><span class="o">/</span><span class="n">EN422</span>
 </pre></div>
 </div>
@@ -121,8 +124,10 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">retrieveEN4</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>2. Update NOAA OISST ver.2.1 data for the two previous months
-If the daily OISST data server (<a class="reference external" href="https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/">https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/</a>) is available:</p>
+</section>
+<section id="update-noaa-oisst-ver-2-1-data-for-the-two-previous-months">
+<h3>Update NOAA OISST ver.2.1 data for the two previous months<a class="headerlink" href="#update-noaa-oisst-ver-2-1-data-for-the-two-previous-months" title="Link to this heading"></a></h3>
+<p>If the daily OISST data server (<a class="reference external" href="https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/">https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/</a>) is available:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">nn9039k</span><span class="o">/</span><span class="n">inputdata</span><span class="o">/</span><span class="n">obs</span><span class="o">/</span><span class="n">SST</span><span class="o">/</span><span class="n">NOAA</span><span class="o">/</span><span class="n">hires</span>
 </pre></div>
 </div>
@@ -168,6 +173,7 @@ Load the shared conda environment.</p>
 <p>Similarly, daily OISST high resolution data are initially uploaded by NOAA as ‘preliminary’ (e.g., oisst-avhrr-v02r01.20241031_preliminary.nc), and then are replaced later by final’ files (e.g., oisst-avhrr-v02r01.20241031.nc).</p>
 <p>We always want to run the analysis with the best possible data, which means that each month, we will re-run the part of the analysis that used ‘preliminary’ data last month. This means that it is important to keep track of what the latest observational files are each month.</p>
 <p>Note that the data servers are sometimes unavailable due to maintenance downtime or capacity problems. You need to try again later.</p>
+</section>
 </section>
 <section id="install-norcpm-forecast-system">
 <h2>2 Install NorCPM forecast system<a class="headerlink" href="#install-norcpm-forecast-system" title="Link to this heading"></a></h2>
