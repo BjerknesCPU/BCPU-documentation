@@ -18,8 +18,9 @@ The Met Office provides monthly updates to EN4.2.2. observational temperature an
 The first step in running the seasonal forecast is to update the observational data that is assimilated into the analysis. The steps below show how it is done for the forecast initialized in December 2024 on Betzy. 
 
 
-1. Update the temperature and salinity profile data ::
+1. Update the temperature and salinity profile data
 
+  ::
   cd /cluster/projects/nn9039k/inputdata/obs/TEM/EN422
 
 Download the temperature and salinity profiles from the UK Met Office (https://www.metoffice.gov.uk/hadobs/en4/download-en4-2-2.html). ::
@@ -171,7 +172,7 @@ Copy the code below into the workflow script.
 
 
 .. note::
-  Note that INIDATE_ANALYSIS, INIDATE_FORECAST, CHMOD_DATE need to be updated in the script before you start a new experiment in the next month. 
+  Note that **INIDATE_ANALYSIS**, **INIDATE_FORECAST**, **CHMOD_DATE** need to be updated in the script before you start a new experiment in the next month. 
 
 
 
