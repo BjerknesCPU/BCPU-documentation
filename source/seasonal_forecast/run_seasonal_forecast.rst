@@ -13,9 +13,10 @@ The forecast should always be provided on the evening of the 14th of the month, 
 The Met Office provides monthly updates to EN4.2.2. observational temperature and salinity profiles, and these updates happen on the 9th-17th of each month. If this update can be included into the assimilation then this is good, as it gives us an additional month of temperature and salinity data to assimilate. You can check when the last update was on the Met Office `site <https://www.metoffice.gov.uk/hadobs/en4/download-en4-2-2.html>`_ (see bottom of page, or look at file links). I would recommend running the analysis on the 12th/13th of the month. It takes ~3 hours to run. I would then recommend running the prediction on the 12/13th, this takes ~2 hours. The post processing takes another ~2 hours. Therefore, if there are no issues the whole workflow takes around 1 working day, but doing this on the 12/13th allows for potential issues (e.g. machine instability) to be addressed. It is important to keep an eye out for Betzy downtime announcements in the week preceding the 15th to ensure there is no significant disruption.
 
 
-2.1 Update the data for assimilation
+1 Update the data for assimilation
 ------------------------------------
 The first step in running the seasonal forecast is to update the observational data that is assimilated into the analysis. The steps below show how it is done for the forecast initialized in December 2024 on Betzy. 
+
 
 1. Update the temperature and salinity profile data ::
 
@@ -80,7 +81,8 @@ We always want to run the analysis with the best possible data, which means that
 Note that the data servers are sometimes unavailable due to maintenance downtime or capacity problems. You need to try again later. 
 
 
-2.2 Install NorCPM forecast system
+
+2 Install NorCPM forecast system
 ----------------------------------
 Create a personal folder in nn9039k on Betzy. ::
 
@@ -92,13 +94,14 @@ Download the code with git clone. ::
   git clone ssh://git@github.com/NorESMhub/NorCPM.git norcpm-cf  
 
 
-2.3 Create workflow script
+3 Create workflow script
 --------------------------
 We recommend creating a workflow Shell Script under norcpm-cf/setup/noresm1 so that you don’t need to change arguments or edit the setup files whenever you run simulations. ::
 
   cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1 
 
 Copy the code below into the workflow script.
+
 **workflow_seasonal_forecast.sh:** ::
 
   #!/bin/sh -e 
@@ -172,25 +175,36 @@ Copy the code below into the workflow script.
 
 
 
-2.4 Create analysis experiment (if not exist)
+4 Create analysis experiment (if not exist)
 ---------------------------------------------
 **Under construction. Sorry!!**
 
-2.5 Run the analysis
+
+5 Run the analysis
 --------------------
+**Under construction. Sorry!!**
 
-2.6 Backup output from the analysis
+
+6 Backup output from the analysis
 -----------------------------------
+**Under construction. Sorry!!**
 
-2.7 Create prediction
+
+7 Create prediction
 ---------------------
+**Under construction. Sorry!!**
 
-2.8 Run the prediction
+
+8 Run the prediction
 ----------------------
+**Under construction. Sorry!!**
 
-2.9 Merge output from the prediction
+
+9 Merge output from the prediction
 ------------------------------------
+**Under construction. Sorry!!**
 
-2.10 Backup output from the prediction
+
+10 Backup output from the prediction
 --------------------------------------
-
+**Under construction. Sorry!!**

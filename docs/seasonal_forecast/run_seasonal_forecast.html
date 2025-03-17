@@ -47,16 +47,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="seasonal_forecast.html">Seasonal forecast</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="about_seasonal_forecast.html">About the seasonal forecast</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Running the seasonal forecast</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#update-the-data-for-assimilation">2.1 Update the data for assimilation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-norcpm-forecast-system">2.2 Install NorCPM forecast system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-workflow-script">2.3 Create workflow script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-analysis-experiment-if-not-exist">2.4 Create analysis experiment (if not exist)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-the-analysis">2.5 Run the analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#backup-output-from-the-analysis">2.6 Backup output from the analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-prediction">2.7 Create prediction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-the-prediction">2.8 Run the prediction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#merge-output-from-the-prediction">2.9 Merge output from the prediction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#backup-output-from-the-prediction">2.10 Backup output from the prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-the-data-for-assimilation">1 Update the data for assimilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-norcpm-forecast-system">2 Install NorCPM forecast system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-workflow-script">3 Create workflow script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-analysis-experiment-if-not-exist">4 Create analysis experiment (if not exist)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-analysis">5 Run the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backup-output-from-the-analysis">6 Backup output from the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-prediction">7 Create prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-prediction">8 Run the prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge-output-from-the-prediction">9 Merge output from the prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backup-output-from-the-prediction">10 Backup output from the prediction</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="process_seasonal_forecast.html">Processing seasonal forecast</a></li>
@@ -109,7 +109,7 @@
 <p>The forecast should always be provided on the evening of the 14th of the month, as our collaborators need it on the 15th.</p>
 <p>The Met Office provides monthly updates to EN4.2.2. observational temperature and salinity profiles, and these updates happen on the 9th-17th of each month. If this update can be included into the assimilation then this is good, as it gives us an additional month of temperature and salinity data to assimilate. You can check when the last update was on the Met Office <a class="reference external" href="https://www.metoffice.gov.uk/hadobs/en4/download-en4-2-2.html">site</a> (see bottom of page, or look at file links). I would recommend running the analysis on the 12th/13th of the month. It takes ~3 hours to run. I would then recommend running the prediction on the 12/13th, this takes ~2 hours. The post processing takes another ~2 hours. Therefore, if there are no issues the whole workflow takes around 1 working day, but doing this on the 12/13th allows for potential issues (e.g. machine instability) to be addressed. It is important to keep an eye out for Betzy downtime announcements in the week preceding the 15th to ensure there is no significant disruption.</p>
 <section id="update-the-data-for-assimilation">
-<h2>2.1 Update the data for assimilation<a class="headerlink" href="#update-the-data-for-assimilation" title="Link to this heading"></a></h2>
+<h2>1 Update the data for assimilation<a class="headerlink" href="#update-the-data-for-assimilation" title="Link to this heading"></a></h2>
 <p>The first step in running the seasonal forecast is to update the observational data that is assimilated into the analysis. The steps below show how it is done for the forecast initialized in December 2024 on Betzy.</p>
 <ol class="arabic simple">
 <li><p>Update the temperature and salinity profile data</p></li>
@@ -170,7 +170,7 @@ Load the shared conda environment.</p>
 <p>Note that the data servers are sometimes unavailable due to maintenance downtime or capacity problems. You need to try again later.</p>
 </section>
 <section id="install-norcpm-forecast-system">
-<h2>2.2 Install NorCPM forecast system<a class="headerlink" href="#install-norcpm-forecast-system" title="Link to this heading"></a></h2>
+<h2>2 Install NorCPM forecast system<a class="headerlink" href="#install-norcpm-forecast-system" title="Link to this heading"></a></h2>
 <p>Create a personal folder in nn9039k on Betzy.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir -p /cluster/projects/nn9039k/people/$USER
 cd /cluster/projects/nn9039k/people/$USER
@@ -182,13 +182,13 @@ cd /cluster/projects/nn9039k/people/$USER
 </div>
 </section>
 <section id="create-workflow-script">
-<h2>2.3 Create workflow script<a class="headerlink" href="#create-workflow-script" title="Link to this heading"></a></h2>
+<h2>3 Create workflow script<a class="headerlink" href="#create-workflow-script" title="Link to this heading"></a></h2>
 <p>We recommend creating a workflow Shell Script under norcpm-cf/setup/noresm1 so that you don’t need to change arguments or edit the setup files whenever you run simulations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
 </pre></div>
 </div>
-<p>Copy the code below into the workflow script.
-<strong>workflow_seasonal_forecast.sh:</strong></p>
+<p>Copy the code below into the workflow script.</p>
+<p><strong>workflow_seasonal_forecast.sh:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/sh -e
 : ${INIDATE_ANALYSIS:=2024-08-15} #&lt;--change the date!!! e.g., 2024-08-15 for Dec forecast
 : ${INIDATE_FORECAST:=2024-11-15} #&lt;--change the date!! e.g., 2024-11-15 for Dec forecast
@@ -261,26 +261,32 @@ fi
 </div>
 </section>
 <section id="create-analysis-experiment-if-not-exist">
-<h2>2.4 Create analysis experiment (if not exist)<a class="headerlink" href="#create-analysis-experiment-if-not-exist" title="Link to this heading"></a></h2>
+<h2>4 Create analysis experiment (if not exist)<a class="headerlink" href="#create-analysis-experiment-if-not-exist" title="Link to this heading"></a></h2>
 <p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="run-the-analysis">
-<h2>2.5 Run the analysis<a class="headerlink" href="#run-the-analysis" title="Link to this heading"></a></h2>
+<h2>5 Run the analysis<a class="headerlink" href="#run-the-analysis" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="backup-output-from-the-analysis">
-<h2>2.6 Backup output from the analysis<a class="headerlink" href="#backup-output-from-the-analysis" title="Link to this heading"></a></h2>
+<h2>6 Backup output from the analysis<a class="headerlink" href="#backup-output-from-the-analysis" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="create-prediction">
-<h2>2.7 Create prediction<a class="headerlink" href="#create-prediction" title="Link to this heading"></a></h2>
+<h2>7 Create prediction<a class="headerlink" href="#create-prediction" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="run-the-prediction">
-<h2>2.8 Run the prediction<a class="headerlink" href="#run-the-prediction" title="Link to this heading"></a></h2>
+<h2>8 Run the prediction<a class="headerlink" href="#run-the-prediction" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="merge-output-from-the-prediction">
-<h2>2.9 Merge output from the prediction<a class="headerlink" href="#merge-output-from-the-prediction" title="Link to this heading"></a></h2>
+<h2>9 Merge output from the prediction<a class="headerlink" href="#merge-output-from-the-prediction" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 <section id="backup-output-from-the-prediction">
-<h2>2.10 Backup output from the prediction<a class="headerlink" href="#backup-output-from-the-prediction" title="Link to this heading"></a></h2>
+<h2>10 Backup output from the prediction<a class="headerlink" href="#backup-output-from-the-prediction" title="Link to this heading"></a></h2>
+<p><strong>Under construction. Sorry!!</strong></p>
 </section>
 </section>
 
