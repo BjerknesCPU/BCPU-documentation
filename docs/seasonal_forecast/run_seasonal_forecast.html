@@ -268,11 +268,32 @@ fi
 </section>
 <section id="create-analysis-experiment-if-not-exist">
 <h2>4 Create analysis experiment (if not exist)<a class="headerlink" href="#create-analysis-experiment-if-not-exist" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Create the analysis experiment if it does not exist.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+</pre></div>
+</div>
+<p>We recommend starting tmux before starting the setup because it may take much time to set up the experiment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmux</span>
+<span class="o">./</span><span class="n">workflow_seasonal_forecast</span><span class="o">.</span><span class="n">sh</span> <span class="n">create_analysis</span>
+</pre></div>
+</div>
 </section>
 <section id="run-the-analysis">
 <h2>5 Run the analysis<a class="headerlink" href="#run-the-analysis" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Run the analysis for the step1. This propagates NorCPM for 3 months and skip first assimilation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+./workflow_seasonal_forecast.sh run_analysis_stage1
+</pre></div>
+</div>
+<p>Run the analysis for the step2. This propagates NorCPM for another month, but only assimilates SST.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+./workflow_seasonal_forecast.sh run_analysis_stage2
+</pre></div>
+</div>
+<p>Monitor the job status of your job.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
 </section>
 <section id="backup-output-from-the-analysis">
 <h2>6 Backup output from the analysis<a class="headerlink" href="#backup-output-from-the-analysis" title="Link to this heading"></a></h2>

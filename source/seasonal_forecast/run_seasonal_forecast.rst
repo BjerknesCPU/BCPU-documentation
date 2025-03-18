@@ -183,12 +183,35 @@ Copy the code below into the workflow script.
 
 4 Create analysis experiment (if not exist)
 ---------------------------------------------
-**Under construction. Sorry!!**
+
+Create the analysis experiment if it does not exist. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+
+We recommend starting tmux before starting the setup because it may take much time to set up the experiment. ::
+
+  tmux 
+  ./workflow_seasonal_forecast.sh create_analysis 
 
 
 5 Run the analysis
 --------------------
-**Under construction. Sorry!!**
+
+Run the analysis for the step1. This propagates NorCPM for 3 months and skip first assimilation. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+  ./workflow_seasonal_forecast.sh run_analysis_stage1
+
+
+Run the analysis for the step2. This propagates NorCPM for another month, but only assimilates SST. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+  ./workflow_seasonal_forecast.sh run_analysis_stage2
+
+
+Monitor the job status of your job. ::
+
+  squeue -u $USER
 
 
 6 Backup output from the analysis
