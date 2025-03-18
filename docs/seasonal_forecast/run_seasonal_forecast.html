@@ -297,23 +297,63 @@ fi
 </section>
 <section id="backup-output-from-the-analysis">
 <h2>6 Backup output from the analysis<a class="headerlink" href="#backup-output-from-the-analysis" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Back up the output from the analysis experiment, after the analysis experiment is completed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+</pre></div>
+</div>
+<p>We recommend using tmux because it may take much time to back up the output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmux</span>
+<span class="o">./</span><span class="n">workflow_seasonal_forecast</span><span class="o">.</span><span class="n">sh</span> <span class="n">backup_analysis</span>
+</pre></div>
+</div>
 </section>
 <section id="create-prediction">
 <h2>7 Create prediction<a class="headerlink" href="#create-prediction" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Create the prediction.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+</pre></div>
+</div>
+<p>We recommend starting tmux before starting the setup because it may take much time to set up the experiment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmux</span>
+<span class="o">./</span><span class="n">workflow_seasonal_forecast</span><span class="o">.</span><span class="n">sh</span> <span class="n">setup_forecast</span>
+</pre></div>
+</div>
 </section>
 <section id="run-the-prediction">
 <h2>8 Run the prediction<a class="headerlink" href="#run-the-prediction" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Run the prediction.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+./workflow_seasonal_forecast.sh run_forecast
+</pre></div>
+</div>
+<p>Monitor the job status of your job.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
 </section>
 <section id="merge-output-from-the-prediction">
 <h2>9 Merge output from the prediction<a class="headerlink" href="#merge-output-from-the-prediction" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Merge the output from the prediction.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+./workflow_seasonal_forecast.sh merge_forecast
+</pre></div>
+</div>
+<p>Monitor the job status of your job.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
 </section>
 <section id="backup-output-from-the-prediction">
 <h2>10 Backup output from the prediction<a class="headerlink" href="#backup-output-from-the-prediction" title="Link to this heading"></a></h2>
-<p><strong>Under construction. Sorry!!</strong></p>
+<p>Back up the output from the prediction, after the prediction is completed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+</pre></div>
+</div>
+<p>We recommend using tmux because it may take much time to back up the output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmux</span>
+<span class="o">./</span><span class="n">workflow_seasonal_forecast</span><span class="o">.</span><span class="n">sh</span> <span class="n">backup_forecast</span>
+</pre></div>
+</div>
 </section>
 </section>
 

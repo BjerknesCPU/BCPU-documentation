@@ -216,24 +216,69 @@ Monitor the job status of your job. ::
 
 6 Backup output from the analysis
 -----------------------------------
-**Under construction. Sorry!!**
+
+Back up the output from the analysis experiment, after the analysis experiment is completed. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+
+
+We recommend using tmux because it may take much time to back up the output. ::
+
+  tmux
+  ./workflow_seasonal_forecast.sh backup_analysis
 
 
 7 Create prediction
 ---------------------
-**Under construction. Sorry!!**
+
+Create the prediction. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+
+
+We recommend starting tmux before starting the setup because it may take much time to set up the experiment. ::
+
+  tmux
+  ./workflow_seasonal_forecast.sh setup_forecast
 
 
 8 Run the prediction
 ----------------------
-**Under construction. Sorry!!**
+
+Run the prediction. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+  ./workflow_seasonal_forecast.sh run_forecast
+ 
+
+Monitor the job status of your job. ::
+
+  squeue -u $USER 
 
 
 9 Merge output from the prediction
 ------------------------------------
-**Under construction. Sorry!!**
+
+Merge the output from the prediction. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+  ./workflow_seasonal_forecast.sh merge_forecast
+
+
+Monitor the job status of your job. ::
+
+  squeue -u $USER
 
 
 10 Backup output from the prediction
 --------------------------------------
-**Under construction. Sorry!!**
+
+Back up the output from the prediction, after the prediction is completed. ::
+
+  cd /cluster/projects/nn9039k/people/$USER/norcpm-cf/setup/noresm1
+
+
+We recommend using tmux because it may take much time to back up the output. ::
+
+  tmux
+  ./workflow_seasonal_forecast.sh backup_forecast
