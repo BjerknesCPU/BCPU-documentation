@@ -9,4 +9,6 @@ This documentation is designed to allow the user to run and post-process the sea
    about_seasonal_forecast.rst
    run_seasonal_forecast.rst
    process_seasonal_forecast.rst
+   generate_forecast_plots.rst
+   update_website.rst
 
