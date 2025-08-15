@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Update the website &mdash; BCPU-documentation 0.1 documentation</title>
+  <title>Create NetCDF data for interactive maps &mdash; BCPU-documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,9 +18,7 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Support" href="../support/support.html" />
-    <link rel="prev" title="Generate forecast plots" href="generate_forecast_plots.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,15 +41,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="seasonal_forecast.html">Seasonal forecast</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="about_seasonal_forecast.html">About the seasonal forecast</a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_seasonal_forecast.html">Running the seasonal forecast</a></li>
-<li class="toctree-l2"><a class="reference internal" href="process_seasonal_forecast.html">Processing seasonal forecast</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate_forecast_plots.html">Generate forecast plots</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Update the website</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="seasonal_forecast.html">Seasonal forecast</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute/contribute.html">Contribute</a></li>
 </ul>
@@ -76,10 +67,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="seasonal_forecast.html">Seasonal forecast</a></li>
-      <li class="breadcrumb-item active">Update the website</li>
+      <li class="breadcrumb-item active">Create NetCDF data for interactive maps</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/seasonal_forecast/update_website.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/seasonal_forecast/create_netcdf_interactive_map.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,18 +77,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="update-the-website">
-<h1>Update the website<a class="headerlink" href="#update-the-website" title="Link to this heading"></a></h1>
-<p>After all forecast plots are ready, update the BCPU seasonal forecast page (<a class="reference external" href="https://bcpu.w.uib.no/seasonal-forecast/">https://bcpu.w.uib.no/seasonal-forecast/</a>).</p>
+  <section id="create-netcdf-data-for-interactive-maps">
+<h1>Create NetCDF data for interactive maps<a class="headerlink" href="#create-netcdf-data-for-interactive-maps" title="Link to this heading"></a></h1>
+<p>After the latest forecast is ready, save post-processing data as NetCDF files.</p>
+<p>Load the shared conda environment on NIRD.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">nird</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">py3env</span><span class="o">/</span><span class="n">py3env3</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>Save post-processing data as NetCDF files.</p>
+<p>Precipitaion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">save_probability_prec</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+<p>2-meter temperature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">save_probability_2mt</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+<p>The interactive maps are automatically updated once a month (<a class="reference external" href="http://norcpm-ai.uib.no/">http://norcpm-ai.uib.no/</a>). If someting goes wrong, contact Eurico (Eurico.Filho(at)uib.no).</p>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="generate_forecast_plots.html" class="btn btn-neutral float-left" title="Generate forecast plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../support/support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
