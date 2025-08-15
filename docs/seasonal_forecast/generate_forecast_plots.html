@@ -62,7 +62,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#plot-seasonal-2m-temperature-probability-map">Plot seasonal 2m temperature probability map</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#probability-of-precipitation">3 Probability of precipitation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#probability-of-precipitation">3 Probability of precipitation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-compute-probability-of-precipitation">How to compute probability of precipitation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Compute climatology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-precipitation-probability-map">Plot precipitation probability map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-seasonal-precipitation-probability-map">Plot seasonal precipitation probability map</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#enso-forecast">4 ENSO forecast</a></li>
 </ul>
 </li>
@@ -225,7 +231,42 @@ Then, count number of ensemble members that exceed the climatology and calculate
 </section>
 <section id="probability-of-precipitation">
 <h2>3 Probability of precipitation<a class="headerlink" href="#probability-of-precipitation" title="Link to this heading"></a></h2>
+<section id="how-to-compute-probability-of-precipitation">
+<h3>How to compute probability of precipitation<a class="headerlink" href="#how-to-compute-probability-of-precipitation" title="Link to this heading"></a></h3>
+<p>The forecast plot shows probability of precipitation.
+First, compute climatology (median) of precipitation, relative to the 1993–2016 for each month, each grid, each lead month (LM1-LM6).
+Then, count number of ensemble members that exceed climatology and calculate percentage.</p>
+</section>
+<section id="id2">
+<h3>Compute climatology<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Load the shared conda environment on NIRD.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">nird</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">py3env</span><span class="o">/</span><span class="n">py3env3</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>Clone the GitHub repository with the processing scripts if you don’t have it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BjerknesCPU</span><span class="o">/</span><span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Compute climatology (median) of precipitation, relative to the 1993–2016 for each month, each grid, each lead month.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">calculate_clm_precipitation</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-precipitation-probability-map">
+<h3>Plot precipitation probability map<a class="headerlink" href="#plot-precipitation-probability-map" title="Link to this heading"></a></h3>
+<p>Once the latest post-processed data from NorCPM forecast simulation is ready, run the following scripts to plot probability of precipitation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">plot_probability_prec</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-seasonal-precipitation-probability-map">
+<h3>Plot seasonal precipitation probability map<a class="headerlink" href="#plot-seasonal-precipitation-probability-map" title="Link to this heading"></a></h3>
+<p>Plot seasonal probability of precipitation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">plot_seasonal_probability_prec</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
 <p><strong>under construction. Sorry!!</strong></p>
+</section>
 </section>
 <section id="enso-forecast">
 <h2>4 ENSO forecast<a class="headerlink" href="#enso-forecast" title="Link to this heading"></a></h2>

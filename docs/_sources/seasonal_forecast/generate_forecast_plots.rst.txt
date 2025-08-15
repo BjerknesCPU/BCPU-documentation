@@ -131,6 +131,46 @@ Plot seasonal probability of 2-meter temperature. ::
 3 Probability of precipitation
 -------------------
 
+How to compute probability of precipitation
+^^^^^^^^^^^^^^^^^^^
+The forecast plot shows probability of precipitation.
+First, compute climatology (median) of precipitation, relative to the 1993–2016 for each month, each grid, each lead month (LM1-LM6).
+Then, count number of ensemble members that exceed climatology and calculate percentage.
+
+
+Compute climatology
+^^^^^^^^^^^^^^^^^^^
+Load the shared conda environment on NIRD. ::
+
+  source /nird/projects/NS9039K/shared/py3env/py3env3.bash
+
+Clone the GitHub repository with the processing scripts if you don’t have it. ::
+
+  git clone https://github.com/BjerknesCPU/C3S-NorCPM-CF.git
+
+Compute climatology (median) of precipitation, relative to the 1993–2016 for each month, each grid, each lead month. ::
+
+  python calculate_clm_precipitation.py
+
+
+
+Plot precipitation probability map
+^^^^^^^^^^^^^^^^^^^
+Once the latest post-processed data from NorCPM forecast simulation is ready, run the following scripts to plot probability of precipitation. ::
+
+  python plot_probability_prec.py 202412
+
+
+Plot seasonal precipitation probability map
+^^^^^^^^^^^^^^^^^^^
+Plot seasonal probability of precipitation. ::
+
+  python plot_seasonal_probability_prec.py 202412
+
+
+
+
+
 **under construction. Sorry!!**
 
 4 ENSO forecast
