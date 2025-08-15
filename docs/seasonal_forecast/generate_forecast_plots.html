@@ -69,7 +69,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#plot-seasonal-precipitation-probability-map">Plot seasonal precipitation probability map</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#enso-forecast">4 ENSO forecast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enso-forecast">4 ENSO forecast</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-compute-nino-3-4-index">How to compute Nino 3.4 index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Compute climatology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-enso-forecast">Plot ENSO forecast</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="update_website.html">Update the website</a></li>
@@ -265,12 +270,101 @@ Then, count number of ensemble members that exceed climatology and calculate per
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">plot_seasonal_probability_prec</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
 </pre></div>
 </div>
-<p><strong>under construction. Sorry!!</strong></p>
 </section>
 </section>
 <section id="enso-forecast">
 <h2>4 ENSO forecast<a class="headerlink" href="#enso-forecast" title="Link to this heading"></a></h2>
-<p><strong>under construction. Sorry!!</strong></p>
+<section id="how-to-compute-nino-3-4-index">
+<h3>How to compute Nino 3.4 index<a class="headerlink" href="#how-to-compute-nino-3-4-index" title="Link to this heading"></a></h3>
+<p>The Nino 3.4 index is used to define El Nino and La Nina events.
+The forecast plot shows the observed Nino 3.4 index for the last 6 months and forecasted Nino 3.4 index for the next 6 months.
+The Nino 3.4 index is the sea surface temperature anomaly in the Nino 3.4 region (5N-5S, 120W-170W).
+When the  Niño 3.4 SSTs exceed +/- 0.5 C degree, the El Ninoor La Nina events are defined.</p>
+<p>The observed sea surface temperature is computed from the OISST ver2.1/ver2 which can be obtaind from the NOAA (ver2.1: <a class="reference external" href="https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/">https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/</a>; ver2: <a class="reference external" href="https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2/access/avhrr-only/">https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2/access/avhrr-only/</a>).</p>
+</section>
+<section id="id3">
+<h3>Compute climatology<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Load the shared conda environment on NIRD.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">nird</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">py3env</span><span class="o">/</span><span class="n">py3env3</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>Clone the GitHub repository with the processing scripts if you don’t have it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BjerknesCPU</span><span class="o">/</span><span class="n">C3S</span><span class="o">-</span><span class="n">NorCPM</span><span class="o">-</span><span class="n">CF</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Compute climatology of sea surface temperature, relative to the 1993–2016 for each month, each grid, each lead month.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">calculate_clm_sst_mdl</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Download the OISST Ver2.1/Ver.2 from NOAA online server (OISST version needs to be set in the script).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">download_oisst</span><span class="o">.</span><span class="n">py</span> <span class="mi">199301</span> <span class="mi">201612</span>
+</pre></div>
+</div>
+<p>Run Python scripts to compute monthly mean of OISST and calculate horizontal interpolation (grid size: 0.25 degree -&gt; 1 degree).
+This script needs “python-cdo” and “pynco” packages.
+Recommend creating the conda environment with these packages.</p>
+<p>Deactivate the shared conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+<p>Create a new conda environment with packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">ENV_NAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">channel</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">pynco</span> <span class="n">xarray</span> <span class="n">netcdf4</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span>
+</pre></div>
+</div>
+<p>Activate the conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">ENV_NAME</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Run the script to compute monthly mean of OISST and calculate horizontal interpolation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">interpolate_oisst</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+<p>Compute climatology of OISST, relative to the 1993–2016 for each month, each grid, each lead month.</p>
+<p>Deactivate the shared conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+<p>Load the shared conda environment on NIRD.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">nird</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">NS9039K</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">py3env</span><span class="o">/</span><span class="n">py3env3</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>Compute climatology of OISST.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">calculate_clm_oisst</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-enso-forecast">
+<h3>Plot ENSO forecast<a class="headerlink" href="#plot-enso-forecast" title="Link to this heading"></a></h3>
+<p>Once the latest OISST data is ready at online server, run the following scripts to download the data and compute monthly mean of OISST.</p>
+<p>Download the OISST Ver2.1 from NOAA online server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">download_oisst</span><span class="o">.</span><span class="n">py</span> <span class="mi">202410</span> <span class="mi">202411</span>
+</pre></div>
+</div>
+<p>Run Python scripts to compute monthly mean of OISST and calculate horizontal interpolation (grod size: 0.25 degree -&gt; 1 degree).
+This script needs “python-cdo” and “pynco” packages.
+Recommend creating the conda environment with these packages.
+This step can be skipped if the new conda environment has been already created.</p>
+<p>Deactivate the shared conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+<p>Create a new conda environment with packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">ENV_NAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">channel</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">pynco</span> <span class="n">xarray</span> <span class="n">netcdf4</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span>
+</pre></div>
+</div>
+<p>Activate the conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">ENV_NAME</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Run the script to compute monthly mean of OISST and calculate horizontal interpolation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">interpolate_oisst</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+<p>Plot ENSO forecasts with observations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_enso_oisst</span><span class="o">.</span><span class="n">py</span> <span class="mi">202412</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
