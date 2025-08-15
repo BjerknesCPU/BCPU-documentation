@@ -90,7 +90,43 @@ Plot Arctic sea ice forecast with observations (OISST) and save figure as png fi
 2 Probability of 2m temperature
 -------------------
 
-**under construction. Sorry!!**
+
+How to compute probability of 2-meter temperature
+^^^^^^^^^^^^^^^^^^^
+The forecast plot shows probability of 2-meter temperature.
+First, compute climatology (median) of 2-meter temperature, relative to the 1993–2016 for each month, each grid, each lead month (LM1-LM6).
+Then, count number of ensemble members that exceed the climatology and calculate percentage.
+
+
+Compute climatology
+^^^^^^^^^^^^^^^^^^^
+Load the shared conda environment on NIRD. ::
+
+  source /nird/projects/NS9039K/shared/py3env/py3env3.bash
+
+Clone the GitHub repository with the processing scripts if you don’t have it. ::
+
+  git clone https://github.com/BjerknesCPU/C3S-NorCPM-CF.git
+
+Compute climatology (median) of 2-meter temperature, relative to the 1993–2016 for each month, each grid, each lead month. ::
+
+  python calculate_clm_2m_temp.py
+
+
+Plot 2m temperature probability map
+^^^^^^^^^^^^^^^^^^^
+Once the latest post-processed data from NorCPM forecast simulation is ready, run the following scripts to plot probability of 2-meter temperature. ::
+
+  python plot_probability_2mt.py 202412
+
+
+Plot seasonal 2m temperature probability map
+^^^^^^^^^^^^^^^^^^^
+Plot seasonal probability of 2-meter temperature. ::
+
+  python plot_seasonal_probability_2mt.py 202412
+
+
 
 3 Probability of precipitation
 -------------------
