@@ -11,4 +11,4 @@ This documentation is designed to allow the user to run and post-process the sea
    process_seasonal_forecast.rst
    generate_forecast_plots.rst
    update_website.rst
-
+   create_netcdf_interactive_map.rst
